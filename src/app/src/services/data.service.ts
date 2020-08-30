@@ -11,6 +11,7 @@ export class DataService {
   }
 
   bookHome$() {
-    return this.httpClient.post('https://run.mocky.io/v3/25a9e978-f688-4988-a8c8-efdd48195dc8', {});
+    return this.httpClient.post(
+        'https://run.mocky.io/v3/25a9e978-f688-4988-a8c8-efdd48195dc8', {});
   }
 }

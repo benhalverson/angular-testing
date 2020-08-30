@@ -1,8 +1,9 @@
 import {Component, Inject, OnInit} from '@angular/core';
 import {MAT_DIALOG_DATA} from '@angular/material/dialog';
+import {MatDialogRef} from '@angular/material/dialog';
+import {MatSnackBar} from '@angular/material/snack-bar';
 import * as moment from 'moment';
-import { MatDialogRef } from '@angular/material/dialog';
-import { MatSnackBar } from '@angular/material/snack-bar';
+
 import {DataService} from '../../services/data.service';
 
 @Component({
@@ -11,11 +12,12 @@ import {DataService} from '../../services/data.service';
   styleUrls: ['./book.component.scss']
 })
 export class BookComponent implements OnInit {
-  constructor(@Inject(MAT_DIALOG_DATA) public data: any,
-              private dataService: DataService,
-              private dialogRef: MatDialogRef<BookComponent>,
-              private snackBar: MatSnackBar,
-             ) {}
+  constructor(
+      @Inject(MAT_DIALOG_DATA) public data: any,
+      private dataService: DataService,
+      private dialogRef: MatDialogRef<BookComponent>,
+      private snackBar: MatSnackBar,
+  ) {}
 
   checkIn = '';
   checkOut = '';
@@ -33,20 +35,18 @@ export class BookComponent implements OnInit {
     const total = nights * this.data.home.price;
 
     if (total > 0 && total < 900000) {
-        return '$' + total;
+      return '$' + total;
     } else {
-        return '--';
+      return '--';
     }
   }
-  ngOnInit(): void {
-
-  }
+  ngOnInit(): void {}
 
   book() {
-      this.dataService.bookHome$().subscribe(() => {
-        this.dialogRef.close();
-        this.snackBar.open('Succesfully booked', 'ok', { duration: this.duration * 1000} );
-      });
-
+    this.dataService.bookHome$().subscribe(() => {
+      this.dialogRef.close();
+      this.snackBar.open(
+          'Succesfully booked', 'ok', {duration: this.duration * 1000});
+    });
   }
 }

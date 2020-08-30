@@ -1,5 +1,4 @@
 import {Component, OnInit} from '@angular/core';
-import {of} from 'rxjs';
 import {DataService} from '../../services/data.service';
 import {DialogService} from '../../services/dialog.service';
 import {BookComponent} from '../book/book.component';
