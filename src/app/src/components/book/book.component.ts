@@ -2,6 +2,9 @@ import {Component, Inject, OnInit} from '@angular/core';
 import {MAT_DIALOG_DATA} from '@angular/material/dialog';
 import * as moment from 'moment';
 import {DataService} from '../../services/data.service';
+import { MatDialogRef } from "@angular/material/dialog";
+import { MatSnackBar } from "@angular/material/snack-bar";
+
 @Component({
   selector: 'app-book',
   templateUrl: './book.component.html',
@@ -10,10 +13,14 @@ import {DataService} from '../../services/data.service';
 export class BookComponent implements OnInit {
   constructor(@Inject(MAT_DIALOG_DATA) public data: any,
             private dataService: DataService,
+            private dialogRef: MatDialogRef<BookComponent>,
+            private _snackbar: MatSnackBar,
              ) {}
 
   checkIn = '';
   checkOut = '';
+  duration = 3;
+
   calculateTotal(checkIn, checkOut) {
     // find the difference between the dates which will give the number of
     // nights
@@ -29,6 +36,9 @@ export class BookComponent implements OnInit {
   }
 
   book() {
-      this.dataService.bookHome$().subscribe();
+      this.dataService.bookHome$().subscribe(() => {
+        this.dialogRef.close();
+        this._snackbar.open('Succesfully booked', null, { duration: this.duration * 1000} );
+      });
   }
 }

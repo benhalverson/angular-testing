@@ -9,6 +9,7 @@ import {AppComponent} from './app.component';
 import {BookComponent} from './src/components/book/book.component';
 import {HeaderComponent} from './src/components/header/header.component';
 import {HomeComponent} from './src/components/home/home.component';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
 
 @NgModule({
   declarations: [AppComponent, HeaderComponent, HomeComponent, BookComponent],
@@ -19,6 +20,7 @@ import {HomeComponent} from './src/components/home/home.component';
     BrowserAnimationsModule,
     MatDialogModule,
     FormsModule,
+    MatSnackBarModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
