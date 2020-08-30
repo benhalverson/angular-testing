@@ -144,4 +144,18 @@ describe('BookComponent', () => {
     expect(notificationService.open).toHaveBeenCalled();
   });
 
+  it('should show display -- for invalid dates', () => {
+    const checkIn = el('[data-test="check-in"] input');
+    checkIn.value = '';
+    checkIn.dispatchEvent(new Event('input'));
+    const checkOut = el('[data-test="check-out"] input');
+    checkOut.value = '';
+    checkOut.dispatchEvent(new Event('input'));
+    fixture.detectChanges();
+    // asset that the total shows 3 x 125=375
+    expect(el('[data-test="total"]').textContent).toContain('Total: --');
+
+  });
+
+
 });
