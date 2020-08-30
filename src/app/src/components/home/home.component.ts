@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
-import { of } from 'rxjs';
+import {Component, OnInit} from '@angular/core';
+import {of} from 'rxjs';
 import {DataService} from '../../services/data.service';
-
+import {DialogService} from '../../services/dialog.service';
+import {BookComponent} from '../book/book.component';
 
 @Component({
   selector: 'app-home',
@@ -9,29 +10,17 @@ import {DataService} from '../../services/data.service';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
-
   homes$;
-  constructor(private readonly dataService: DataService,) { }
+  constructor(
+      private readonly dataService: DataService,
+      private readonly dialogService: DialogService,
+  ) {}
 
   ngOnInit(): void {
-      this.homes$ = this.dataService.getHomes$();
-   /*this.homes$ = of([
-    {
-        title: 'Home 1',
-        image: 'assest/listing.jpg',
-        location: 'new york'
-    },
-    {
-        title: 'Home 2',
-        image: 'assest/listing.jpg',
-        location: 'san jose'
-    },
-    {
-        title: 'Home 3',
-        image: 'assest/listing.jpg',
-        location: 'san francisco'
-    }
-   ])*/
-    }
+    this.homes$ = this.dataService.getHomes$();
+  }
 
+  openDialog(home): void {
+    this.dialogService.open(BookComponent, {width: '250px', data: {home}});
+  }
 }

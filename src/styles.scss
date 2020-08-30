@@ -6,7 +6,21 @@ $global-link-color: #DA7D02;
 @import "uikit/src/scss/mixins-theme.scss";
 
 // 3. Your custom mixin overwrites.
-@mixin hook-card() { color: #000; }
+@mixin hook-card() {
+  color: #000;
+}
 
 // 4. Import UIkit.
 @import "uikit/src/scss/uikit-theme.scss";
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+@import "~@angular/material/prebuilt-themes/pink-bluegrey.css";
