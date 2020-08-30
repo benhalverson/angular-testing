@@ -41,5 +41,6 @@ export class BookComponent implements OnInit {
         this.dialogRef.close();
         this.snackBar.open('Succesfully booked', null, { duration: this.duration * 1000} );
       });
+
   }
 }

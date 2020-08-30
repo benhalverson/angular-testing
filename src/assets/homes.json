@@ -2,18 +2,18 @@
     "title": "home 1",
     "image": "http://fpoimg.com/300x250?text=Preview",
     "location": "new york",
-    "price": "125"
+    "price": "335"
   },
   {
     "title": "home 2",
     "image": "http://fpoimg.com/300x250?text=Preview",
     "location": "san jose",
-    "price": "125"
+    "price": "225"
   },
   {
     "title": "home 1",
     "image": "http://fpoimg.com/300x250?text=Preview",
     "location": "san francisco",
-    "price": "125"
+    "price": "425"
   }
 ]

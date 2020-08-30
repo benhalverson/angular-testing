@@ -6,9 +6,13 @@ import {DataService} from '../../services/data.service';
 import {DialogService} from '../../services/dialog.service';
 import {BookComponent} from './book.component';
 import {of} from 'rxjs';
-import { MatDialogRef } from '@angular/material/dialog';
-import { MatSnackBar } from '@angular/material/snack-bar';
-
+import {MatDialogRef} from '@angular/material/dialog';
+import {MatSnackBar} from '@angular/material/snack-bar';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import {MatNativeDateModule} from '@angular/material/core';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatInputModule} from '@angular/material/input';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
 
 describe('BookComponent', () => {
@@ -23,7 +27,14 @@ describe('BookComponent', () => {
   beforeEach(async(() => {
     TestBed
         .configureTestingModule({
-          imports: [FormsModule,],
+          imports: [
+              FormsModule,
+              MatDatepickerModule,
+              MatNativeDateModule,
+              MatFormFieldModule,
+              MatInputModule,
+              BrowserAnimationsModule,
+          ],
           declarations: [BookComponent],
           providers: [{provide: MAT_DIALOG_DATA, useValue: {}},
             {provide: DataService, useFactory: () => spyOnClass(DataService)},

@@ -10,6 +10,10 @@ import {BookComponent} from './src/components/book/book.component';
 import {HeaderComponent} from './src/components/header/header.component';
 import {HomeComponent} from './src/components/home/home.component';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import {MatNativeDateModule} from '@angular/material/core';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatInputModule} from '@angular/material/input';
 
 @NgModule({
   declarations: [AppComponent, HeaderComponent, HomeComponent, BookComponent],
@@ -21,6 +25,10 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
     MatDialogModule,
     FormsModule,
     MatSnackBarModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatFormFieldModule,
+    MatInputModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
