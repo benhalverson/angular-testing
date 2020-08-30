@@ -2,8 +2,8 @@ import {Component, Inject, OnInit} from '@angular/core';
 import {MAT_DIALOG_DATA} from '@angular/material/dialog';
 import * as moment from 'moment';
 import {DataService} from '../../services/data.service';
-import { MatDialogRef } from "@angular/material/dialog";
-import { MatSnackBar } from "@angular/material/snack-bar";
+import { MatDialogRef } from '@angular/material/dialog';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-book',
@@ -12,16 +12,16 @@ import { MatSnackBar } from "@angular/material/snack-bar";
 })
 export class BookComponent implements OnInit {
   constructor(@Inject(MAT_DIALOG_DATA) public data: any,
-            private dataService: DataService,
-            private dialogRef: MatDialogRef<BookComponent>,
-            private _snackbar: MatSnackBar,
+              private dataService: DataService,
+              private dialogRef: MatDialogRef<BookComponent>,
+              private snackBar: MatSnackBar,
              ) {}
 
   checkIn = '';
   checkOut = '';
   duration = 3;
 
-  calculateTotal(checkIn, checkOut) {
+  calculateTotal(checkIn, checkOut): number {
     // find the difference between the dates which will give the number of
     // nights
 
@@ -33,12 +33,13 @@ export class BookComponent implements OnInit {
 
   }
   ngOnInit(): void {
+
   }
 
   book() {
       this.dataService.bookHome$().subscribe(() => {
         this.dialogRef.close();
-        this._snackbar.open('Succesfully booked', null, { duration: this.duration * 1000} );
+        this.snackBar.open('Succesfully booked', null, { duration: this.duration * 1000} );
       });
   }
 }
