@@ -1,5 +1,5 @@
 
-import {async, ComponentFixture, TestBed} from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import {spyOnClass} from 'jasmine-es6-spies';
 import {of} from 'rxjs';
 
@@ -14,7 +14,7 @@ describe('HomeComponent', () => {
   let dataService: jasmine.SpyObj<DataService>;
   let dialogService: jasmine.SpyObj<DialogService>;
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed
         .configureTestingModule({
           declarations: [HomeComponent],
